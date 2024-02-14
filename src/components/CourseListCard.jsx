@@ -2,6 +2,7 @@ import Rating from "@mui/material/Rating";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { usePopupContext } from "../context/popup_context";
+import { isMobile } from "react-device-detect";
 
 export default function CourseListCard({ course, index }) {
   const { setCourse } = usePopupContext();
@@ -34,8 +35,8 @@ export default function CourseListCard({ course, index }) {
     >
       <div
         ref={itemRef}
-        onMouseEnter={handleMouseOver}
-        onMouseLeave={handleMouseOver}
+        onMouseEnter={isMobile ? () => (false) : handleMouseOver}
+        onMouseLeave={isMobile ? () => (false) : handleMouseOver}
         onClick={handleClick}
         className="relative"
       >

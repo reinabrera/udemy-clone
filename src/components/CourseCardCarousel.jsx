@@ -1,6 +1,7 @@
 import { usePopupContext } from "../context/popup_context";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
+import { isMobile } from "react-device-detect";
 
 export default function CourseCardCarousel({course}) {
   const { setCourse } = usePopupContext();
@@ -18,7 +19,7 @@ export default function CourseCardCarousel({course}) {
   }
 
   return (<div className="embla__slide ps-4 flex-[0_0_75%] xs:flex-[0_0_50%] sm:flex-[0_0_33%] md:flex-[0_0_25%] lg:flex-[0_0_20%]">
-  <div onClick={handleClick} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseOver} className="course-card relative">
+  <div onClick={handleClick} onMouseEnter={isMobile ? () => (false) : handleMouseOver} onMouseLeave={isMobile ? () => (false) : handleMouseOver} className="course-card relative">
     <div className="course-thumbnail border border-gray-300 relative">
       <div className="size-full absolute top-0 bg-neutral-800 opacity-0 transition-all"></div>
       <img src={course.img} className="w-full" alt="alt" />

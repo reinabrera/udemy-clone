@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home, Courses, Course, Cart } from "./pages/index";
+import { PopupProvider } from "./context/popup_context";
+import { CartProvider } from "./context/cart_context";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import SearchBarMobileProvider from "./context/search_bar_mobile_context";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <PopupProvider>
+        <CartProvider>
+          <SearchBarMobileProvider>
+            <ScrollToTop />
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/courses/:category/" element={<Courses />} />
+              <Route
+                path="/courses/:category/:subcategory"
+                element={<Courses />}
+              />
+              <Route path="/courses/search" element={<Courses />} />
+              <Route path="/course/:id" element={<Course />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+            <Footer />
+          </SearchBarMobileProvider>
+        </CartProvider>
+      </PopupProvider>
+    </BrowserRouter>
   );
 }
 

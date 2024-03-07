@@ -32,6 +32,7 @@ export default function CourseContent({ data }) {
     const initialArr = Array(totalSections).fill(false);
     initialArr[0] = true;
     setIsExpanded(initialArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 

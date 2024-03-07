@@ -1,9 +1,8 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 import subcategories from "../data/subcategories";
 import categories from "../data/categories";
-import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import OffCanvas from "./OffCanvas";
 
@@ -17,7 +16,6 @@ export default function MobileMenu() {
   const handleClick = () => {
     if (ref) {
       const offcanvas = ref.current;
-      console.log(offcanvas.style.display);
       offcanvas.style.display =
         offcanvas.style.display === "none" ? "block" : "none";
     }

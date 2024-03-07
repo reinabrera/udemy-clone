@@ -43,7 +43,7 @@ export default function Tabs({ items, selected, onClick }) {
         setShowButtons(false);
       }
     }
-  }, [ref.current]);
+  }, []);
 
   return (
     <div className="tabs overflow-hidden relative">

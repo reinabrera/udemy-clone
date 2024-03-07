@@ -42,7 +42,7 @@ export default function CourseListCard({ course, index }) {
       >
         <div className="item-wrapper flex relative -ms-4 *:ps-4">
           <div className="featured-img flex-shrink-0 w-2/6">
-            <img src={course.img} className="w-full" />
+            <img src={course.img} className="w-full" alt={course.title}/>
           </div>
           <div className="course-featured-content">
             <h3 className="font-extrabold text-base text-black">

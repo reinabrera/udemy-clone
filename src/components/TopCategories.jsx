@@ -10,7 +10,7 @@ export default function TopCategories({ categories }) {
             <li key={item.id} className="md:w-1/4 ps-2 mb-2 md:ps-8">
               <Link className="block rounded-full p-3 md:p-0" to={"/courses/" + item.slug}>
                 <div className="img-wrapper mb-2 overflow-hidden hidden md:block">
-                  <img className="size-full transition-all hover:scale-105 duration-300 overflow-hidden" src={item.img} />
+                  <img className="size-full transition-all hover:scale-105 duration-300 overflow-hidden" src={item.img} alt={item.name + " category"} />
                 </div>
                 <span className="font-extrabold text-base text-primary">{item.name}</span>
               </Link>

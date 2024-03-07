@@ -47,7 +47,7 @@ export default function CoursePageHero({ data, heroRef }) {
               <div className="absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 bg-white rounded-b-full rounded-t-full size-16 flex items-center justify-center">
                 <PlayArrowSharpIcon sx={{ fontSize: "3rem" }} />
               </div>
-              <img className="w-full" src={data.course.img} />
+              <img className="w-full" src={data.course.img} alt={data.course.title}/>
             </div>
           </div>
           <div className="content px-6 lg:px-0 text-primary lg:text-white lg:mt-4">

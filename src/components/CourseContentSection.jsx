@@ -13,6 +13,7 @@ export default function CourseContentSection({ data, setTotalTimeAndLectures, ex
         return {...prev, totalTime: prev.totalTime + sectionTime, totalLectures: prev.totalLectures + lecturesCount}
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sectionTime, lecturesCount]);
 
   if (sectionTime !== null) {

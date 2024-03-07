@@ -2,25 +2,30 @@ import { useState } from "react";
 import { Rating } from "@mui/material";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import RadioButtonChecked from "@mui/icons-material/RadioButtonChecked";
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
-export default function RatingsFilter({selectedRating, setSelectedRating}) {
-
-  const [ showRating, setShowRating ] = useState(true);
-
+export default function RatingsFilter({ selectedRating, setSelectedRating }) {
+  const [showRating, setShowRating] = useState(true);
   const stars = [4.7, 4.6, 4.5];
 
   const handleChange = (e) => {
-    setSelectedRating(e.target.value);
+    setSelectedRating(parseFloat(e.target.value));
   };
 
   const handleClick = () => {
     setShowRating(!showRating);
-  }
+  };
 
   return (
-    <div className={`ratings-filter ${showRating ? 'active' : ''} pt-4 md:border-t`}>
-      <button className="flex justify-between w-full items-center" onClick={handleClick}>
+    <div
+      className={`ratings-filter ${
+        showRating ? "active" : ""
+      } pt-4 md:border-t`}
+    >
+      <button
+        className="flex justify-between w-full items-center"
+        onClick={handleClick}
+      >
         <span className="font-extrabold text-xl">Ratings</span>{" "}
         <ExpandLessIcon />
       </button>
@@ -38,11 +43,11 @@ export default function RatingsFilter({selectedRating, setSelectedRating}) {
                 type="radio"
                 id={"stars-" + star}
                 value={star}
-                checked={selectedRating == star}
+                checked={selectedRating === star}
                 className="cursor-pointer opacity-0"
               />
               <div className="pointer-events-none -ms-4">
-                {selectedRating == star ? (
+                {selectedRating === star ? (
                   <RadioButtonChecked fontSize="small" />
                 ) : (
                   <RadioButtonUncheckedIcon fontSize="small" />
@@ -54,7 +59,9 @@ export default function RatingsFilter({selectedRating, setSelectedRating}) {
                 htmlFor={"stars-" + star}
               >
                 <Rating value={star} precision={0.1} readOnly={true} />{" "}
-                <span className="ms-2 !text-primary whitespace-nowrap">{star} & up</span>
+                <span className="ms-2 !text-primary whitespace-nowrap">
+                  {star} & up
+                </span>
               </label>
             </div>
           );

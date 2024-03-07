@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import HeroCarousel from "../components/HeroCarousel";
 import Courses from "../components/Courses";
 import { usePopupContext } from "../context/popup_context";

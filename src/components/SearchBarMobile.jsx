@@ -1,6 +1,6 @@
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CloseIcon from "@mui/icons-material/Close";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchBarMobileContext } from "../context/search_bar_mobile_context";
 import SearchBarResult from "./SearchBarResult";
 

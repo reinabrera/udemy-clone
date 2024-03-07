@@ -12,6 +12,7 @@ export default function CourseContentSectionItem({ data, index, setSectionTime})
         setSectionTime((prev) => prev + totalMinutes);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data.time]);
 
   return (

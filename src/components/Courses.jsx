@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Tabs from "./Tabs";
 import subcategories from "../data/subcategories";
 import categories from "../data/categories";

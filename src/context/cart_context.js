@@ -1,23 +1,13 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import { ADD_ITEM_TO_CART, LOAD_CART_FROM_LOCAL_STORAGE, REMOVE_ITEM_FROM_CART } from "../utils/actions";
+import { ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART } from "../utils/actions";
 
 const CartContext = createContext();
 
-const initialState = [1001, 1002]
-
 function reducer(cart, action) {
-  let cartLocal = JSON.parse(localStorage.getItem("cart")) || [];
-
   switch (action.type) {
     case ADD_ITEM_TO_CART:
-      cartLocal.push(action.id);
-      localStorage.setItem("cart", JSON.stringify(cartLocal));
       return [...cart, action.id]
     case REMOVE_ITEM_FROM_CART:
-      const filtered = cartLocal.filter((item) => {
-        return item !== action.id;
-      });
-      localStorage.setItem("cart", JSON.stringify(filtered));
       return cart.filter((id) => {
         return id !== action.id;
       })
@@ -27,9 +17,12 @@ function reducer(cart, action) {
 }
 
 export function CartProvider({children}) {
-  const cartLocal = JSON.parse(localStorage.getItem("cart"));
-  const [cart, dispatch] = useReducer(reducer, cartLocal || []);
-  console.log(cart);
+  const cartLocal = JSON.parse(localStorage.getItem("cart")) || [];
+  const [cart, dispatch] = useReducer(reducer, cartLocal);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart])
 
   return(
     <CartContext.Provider value={{cart, dispatch}}>

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { logo_udemy as logo } from "../assets/images";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Search from "./Search";
-import MenuIcon from "@mui/icons-material/Menu";
 import MobileMenu from "./MobileMenu";
 import SearchBarMobile from "./SearchBarMobile";
 import { useSearchBarMobileContext } from "../context/search_bar_mobile_context";

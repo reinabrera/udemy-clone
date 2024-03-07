@@ -24,8 +24,7 @@ export default function WhatYouWillLearn({ id, data }) {
         setIsExpanded(true);
       }
     }
-    console.log("location changed")
-  }, [itemRef.current, location]);
+  }, [location]);
 
   return (
     <div className="what-you-will-learn text-primary">

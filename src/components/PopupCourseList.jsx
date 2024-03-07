@@ -21,6 +21,7 @@ export default function PopupCourseList({ content }) {
         left: content.x + ((content.width - popupRef.current.offsetWidth)/2),
       })
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [popupRef.current, course])
 
   const handleMouseOver = () => {

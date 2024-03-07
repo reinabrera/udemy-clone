@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import categories from "../data/categories";
 import subcategories from "../data/subcategories";
-import { Link } from "react-router-dom";
 import NavDropdownList from "./NavDropdownList";
 
 export default function NavDropdown({isHidden}) {
